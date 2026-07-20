@@ -1,25 +1,28 @@
 # OptVerse User Manual
 
-OptVerse 3.5.1 中英文用户手册的 Read the Docs 发布仓库。
+This repository publishes the English and Simplified Chinese OptVerse 3.5.1
+user manuals on Read the Docs.
 
-## 在线文档
+## Documentation
 
 - [English](https://optverse-user-manual.readthedocs.io/en/3.5.1/en/)
-- [简体中文](https://optverse-user-manual.readthedocs.io/en/3.5.1/zh_cn/)
+- [Simplified Chinese](https://optverse-user-manual.readthedocs.io/en/3.5.1/zh_cn/)
 
-## 仓库结构
+## Repository structure
 
-- `build/html/`：用于发布的中英文预构建 HTML 文档。
-- `rtd/`：Read the Docs 使用的最小 Sphinx 入口。
-- `.readthedocs.yaml`：Read the Docs 构建配置。
+- `build/html/`: prebuilt English and Simplified Chinese HTML documentation.
+- `rtd/`: minimal Sphinx entry point used by Read the Docs.
+- `.readthedocs.yaml`: Read the Docs build configuration.
 
-## 本地验证
+## Local verification
 
-项目使用 [uv](https://docs.astral.sh/uv/) 管理 Python 环境：
+The project uses [uv](https://docs.astral.sh/uv/) to manage its Python
+environment:
 
 ```bash
 uv run --with-requirements requirements.txt \
   sphinx-build -b html rtd build/ci-html -W --keep-going
 ```
 
-向 `main` 分支推送后，Read the Docs 会自动构建并发布文档。
+Read the Docs automatically builds and publishes the documentation after a
+push to the `main` branch.
