@@ -1,0 +1,31 @@
+name: Build documentation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  sphinx:
+    runs-on: ubuntu-22.04
+    env:
+      RELEASE_VERSION: 3.5.1
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+
+      - name: Build Read the Docs artifact
+        run: >-
+          uv run --with-requirements requirements.txt
+          sphinx-build -b html rtd build/ci-html -W --keep-going
+
+      - name: Verify published languages
+        run: test -f build/ci-html/en/index.html && test -f build/ci-html/zh_cn/index.html
