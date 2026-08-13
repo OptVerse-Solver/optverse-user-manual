@@ -1,0 +1,1232 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-content_root="../../../../../">
+  <head>
+    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="theme-color" content="oklch(0.988 0.003 84.6)" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="oklch(0 0 0)" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="addGenConstrAbs()" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="/manual_text/optverse_api/mp/java_api/OPTVModel/add_genconstr_abs.html" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="addGenConstrAbs()" />
+
+    
+    <script>
+      (function() {
+        var theme = 'auto';
+        try { theme = localStorage.getItem('theme') || 'auto'; }
+        catch(e) { /* localStorage unavailable */ }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
+    <title>addGenConstrAbs() &#8212; 天筹求解器&lt;br&gt;数学规划求解器用户手册&lt;br&gt;&lt;br&gt;发行版本 3.6.0</title>
+    <meta name="description" content="OptVerse Solver Reference Manual - API references, parameters, attributes, file formats (LP, MPS), and quick start guides for C++, Python, Java, and JavaScript.">
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=958cf102" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/basic.css?v=a052368a" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../../../_static/custom.css?v=6ff1bcfc" />
+    <style>
+    :root {
+      color-scheme: light dark;
+
+      --color-bg: light-dark(oklch(0.988 0.003 84.6), oklch(0 0 0));
+      --color-surface: light-dark(oklch(0.950 0.006 84.6), #121212);
+      --color-text-1: light-dark(oklch(0.187 0.003 67.7), oklch(0.926 0.005 78.3));
+      --color-text-2: light-dark(oklch(0.497 0.016 88.8), oklch(0.716 0.009 56.3));
+      --color-text-3: light-dark(oklch(0.457 0.012 87.5), oklch(0.619 0.011 72.6));
+      --color-border: light-dark(oklch(0.904 0.010 87.5), oklch(0.350 0.008 75.3));
+      --color-brand: light-dark(oklch(0.187 0.003 67.7), oklch(0.926 0.005 78.3));
+      --color-accent: light-dark(oklch(0.500 0.224 28.4), oklch(0.700 0.224 28.4));
+      --color-accent-hover: light-dark(oklch(0.440 0.197 28.6), oklch(0.760 0.227 28.4));
+      --color-code-bg: light-dark(oklch(0.988 0.003 84.6), oklch(0 0 0));
+      --color-code-border: light-dark(oklch(0.857 0.014 268.5), oklch(0.324 0.032 282.0));
+      --sidebar-width: 280px;
+      --content-max-width: 1200px;
+      --header-height: 56px;
+      --color-secondary: light-dark(oklch(0.600 0.104 184.7), oklch(0.785 0.133 181.9));
+      --color-tertiary: light-dark(oklch(0.680 0.146 49.0), oklch(0.837 0.164 84.4));
+    }
+    </style>
+    <link rel="stylesheet" href="../../../../../_static/theme.min.css" type="text/css" />
+    <script src="../../../../../_static/documentation_options.js?v=38fca789" defer></script>
+    <script src="../../../../../_static/doctools.js?v=9a2dae69" defer></script>
+    <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c" defer></script>
+    <script src="../../../../../_static/translations.js?v=beaddf03" defer></script>
+    <script src="../../../../../_static/design-tabs.js?v=f930bc37" defer></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="/manual_text/optverse_api/mp/java_api/OPTVModel/add_genconstr_abs.html" />
+    <link rel="icon" href="../../../../../_static/ico.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="../../../../../_static/ico.ico" />
+  </head><body>
+<noscript><div class="noscript-warning">此文档需要启用 JavaScript 才能获得完整功能。</div></noscript>
+
+<div class="reading-progress" id="reading-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="阅读进度"></div>
+
+
+<header class="mobile-header">
+  <button class="menu-toggle" aria-label="切换导航" data-action="toggle-sidebar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M3 12h18M3 6h18M3 18h18"/>
+    </svg>
+  </button>
+  <span class="mobile-title">天筹求解器数学规划求解器用户手册 — 发行版本 3.6.0</span>
+  <button class="mobile-search-toggle" aria-label="搜索" data-action="open-search">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+  </button>
+  <button class="theme-toggle mobile-theme-toggle" aria-label="切换主题" title="切换明亮/黑暗模式" data-action="toggle-theme">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2"/>
+    <path d="M12 20v2"/>
+    <path d="m4.93 4.93 1.41 1.41"/>
+    <path d="m17.66 17.66 1.41 1.41"/>
+    <path d="M2 12h2"/>
+    <path d="M20 12h2"/>
+    <path d="m6.34 17.66-1.41 1.41"/>
+    <path d="m19.07 4.93-1.41 1.41"/>
+  </svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+  <svg class="icon-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 2v2"/>
+    <path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/>
+    <path d="M16 12a4 4 0 0 0-4-4"/>
+    <path d="m19 5-1.256 1.256"/>
+    <path d="M20 12h2"/>
+  </svg></button>
+</header>
+<div class="sidebar-overlay" id="sidebar-overlay" role="button" tabindex="0" aria-label="关闭菜单" data-action="toggle-sidebar"></div>
+    <nav class="related related-collapsible collapsed" aria-label="相关导航">
+      <ul>
+        <li class="nav-item nav-rellink"><a href="../../../../../genindex.html" title="总目录"
+           accesskey="I">索引</a> |</li>
+        <li class="nav-item nav-rellink"><a href="add_genconstr_indicator.html" title="addGenConstrIndicator()"
+           accesskey="P">上一页</a> |</li>
+        <li class="nav-item nav-rellink"><a href="add_genconstr_norm.html" title="AddGenConstrNorm()"
+           accesskey="N">下一页</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../../index.html">天筹求解器数学规划求解器用户手册 — 发行版本 3.6.0</a> &#187;</li>
+        <li class="nav-collapse-toggle"><button type="button" aria-label="切换面包屑导航" aria-expanded="false" data-action="toggle-nav-collapse"></button> &#187;
+          <li class="nav-item nav-item-1 nav-parent-item"><a href="../../../content.html">API 参考手册</a> &#187;</li>
+          <li class="nav-item nav-item-2 nav-parent-item"><a href="../../content.html">数学规划求解器 API 参考手册</a> &#187;</li>
+          <li class="nav-item nav-item-3 nav-parent-item"><a href="../content.html">Java API参考手册</a> &#187;</li>
+          <li class="nav-item nav-item-4 nav-parent-item"><a href="../OPTVModel.html">模型</a> &#187;</li>
+        <li class="nav-item nav-item-this" aria-current="page"><span>addGenConstrAbs()</span></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="social-links">
+          <a href="https://github.com/OptVerse-Solver/optverse-release" target="_blank" rel="noopener noreferrer" aria-label="github" class="social-link">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
+        </div>
+        <button class="theme-toggle" aria-label="切换主题" title="切换明亮/黑暗模式" data-action="toggle-theme">
+  <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2"/>
+    <path d="M12 20v2"/>
+    <path d="m4.93 4.93 1.41 1.41"/>
+    <path d="m17.66 17.66 1.41 1.41"/>
+    <path d="M2 12h2"/>
+    <path d="M20 12h2"/>
+    <path d="m6.34 17.66-1.41 1.41"/>
+    <path d="m19.07 4.93-1.41 1.41"/>
+  </svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+  <svg class="icon-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 2v2"/>
+    <path d="M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715"/>
+    <path d="M16 12a4 4 0 0 0-4-4"/>
+    <path d="m19 5-1.256 1.256"/>
+    <path d="M20 12h2"/>
+  </svg></button>
+      </div>
+    </nav>
+  <div class="page-wrapper">
+    
+    <aside class="sidebar-drawer" id="sidebar-drawer">
+      
+      <div class="sidebar-brand">
+        <a href="../../../../../index.html">
+          <img class="logo only-light" src="../../../../../_static/optverse_logo_light.svg" alt="Logo" width="120" height="120"/>
+          <img class="logo only-dark" src="../../../../../_static/optverse_logo_dark.svg" alt="Logo" width="120" height="120"/>
+        </a>
+        <div class="title">天筹求解器<br>数学规划求解器用户手册<br><br>发行版本 3.6.0</div>
+      </div>
+
+      <div class="sidebar-scroll">
+        <div class="sidebar-container">
+          
+          <div class="search-box">
+            <form action="../../../../../search.html" method="get">
+              <input type="text" name="q" id="search-input" placeholder=" " aria-label="搜索" autocomplete="off"/>
+              <label class="search-placeholder" for="search-input">打字 <kbd class="search-kbd-inline">/</kbd> 搜索</label>
+              <button type="submit" class="sr-only">搜索</button>
+            </form>
+          </div>
+
+          
+          <nav class="sidebar-group" aria-label="目录">
+            <h2 class="sidebar-group-title">目录</h2>
+            <div class="toctree">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../intro.html">天筹(OptVerse)求解器简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">安装说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../command_line_tool.html">命令行工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../quick_start_guide/content.html">天筹求解器快速入门</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quick_start_guide/mip_examples/content.html">天筹数学规划求解器快速入门</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quick_start_guide/mip_examples/cpp_examples.html">C++接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quick_start_guide/mip_examples/python_examples.html">Python接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quick_start_guide/mip_examples/java_examples.html">Java接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quick_start_guide/mip_examples/feasrelax_examples.html">可行性松弛</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quick_start_guide/mip_examples/iis_isolation_examples.html">不可约不可行子系统 (IIS)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quick_start_guide/mip_examples/sensitivity_analysis_examples.html">LP 灵敏度分析</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../quick_start_guide/cp_examples/content.html">天筹约束规划求解器快速入门</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quick_start_guide/cp_examples/cpp_cp_examples.html">C++ 接口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../quick_start_guide/cp_examples/python_cp_examples.html">Python接口</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../file_formats/content.html">文件格式</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../file_formats/mps_format.html">MPS格式文件说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../file_formats/lp_format.html">LP格式文件说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../file_formats/fzn_format.html">FZN 文件格式说明</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../attributes/content.html">属性介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../attributes/mp_attr/content.html">数学规划求解器属性介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../attributes/mp_attr/model_attr.html">模型属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../attributes/mp_attr/var_attr.html">变量属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../attributes/mp_attr/constr_attr.html">约束属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../attributes/mp_attr/qconstr_attr.html">二次约束属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../attributes/mp_attr/sos_attr.html">SOS约束属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../attributes/mp_attr/genconstr_attr.html">一般约束属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../attributes/mp_attr/multi_obj_attr.html">多目标优化属性</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../attributes/mp_attr/quality_attr.html">解的质量属性</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../attributes/attribute_examples.html">属性使用示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../parameters/content.html">参数参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../parameters/mip_param/content.html">数学规划求解器参数说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/mip_param/termination.html">终止条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/mip_param/tolerances.html">容差</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/mip_param/logging.html">日志</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/mip_param/input_output.html">输入/输出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/mip_param/lp.html">LP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/mip_param/mip.html">MIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/mip_param/cut.html">割平面</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/mip_param/multi_objective.html">多目标优化</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../parameters/parameter_examples.html">参数示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../parameters/cp_param/content.html">约束规划求解器参数说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/cp_param/termination.html">终止条件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/cp_param/tolerances.html">容差</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../../parameters/cp_param/algorithm.html">算法控制</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../content.html">API 参考手册</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../env/content.html">环境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../env/cpp/content.html">C++ API 参考手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/cpp/optvenv.html">OPTVEnv()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/cpp/get.html">Get()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/cpp/set.html">Set()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/cpp/resetparams.html">ResetParams()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../env/java/content.html">JAVA API 参考手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/java/optvenv.html">OPTVEnv()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/java/get.html">get()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/java/set.html">set()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../env/python/content.html">Python API 参考手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/python/optvenv.html">OPTVEnv()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/python/getattr.html">__getattr__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/python/setattr.html">__setattr__()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/python/get.html">Get()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/python/set.html">Set()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../env/python/resetparams.html">ResetParams()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../content.html">数学规划求解器 API 参考手册</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../../cpp_api/content.html">C++ API 参考手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVVar.html">变量</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVVar/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVVar/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVVar/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVVar/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVColumn.html">列</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVColumn/add_term.html">AddTerm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVColumn/add_terms.html">AddTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVColumn/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVColumn/get_coef.html">GetCoeff()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVColumn/get_constr.html">GetConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVColumn/remove.html">Remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVColumn/size.html">Size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVLinExpr.html">线性表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVLinExpr/add_terms.html">AddTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVLinExpr/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVLinExpr/get_coef.html">GetCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVLinExpr/get_var.html">GetVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVLinExpr/get_constant.html">GetConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVLinExpr/get_value.html">GetValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVLinExpr/remove.html">Remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVLinExpr/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVLinExpr/size.html">Size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVConstr.html">线性约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVConstr/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVConstr/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVConstr/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVConstr/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr.html">二次表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/add_constant.html">AddConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/add_term.html">AddTerm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/add_terms.html">AddTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/get_coeff.html">GetCoeff()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/get_constant.html">GetConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/get_lin_expr.html">GetLinExpr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/get_value.html">GetValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/get_var1.html">GetVar1()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/get_var2.html">GetVar2()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/remove.html">Remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQuadExpr/size.html">Size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVQConstr.html">二次约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQConstr/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQConstr/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQConstr/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVQConstr/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr.html">仿射表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr/add_row.html">AddRow()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr/add_rows.html">AddRows()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr/get_column_indices.html">GetColumnIndices()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr/get_offset.html">GetOffset()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr/get_offsets.html">GetOffsets()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr/get_row_indices.html">GetRowIndices()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr/get_values.html">GetValues()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr/set_offset.html">SetOffset()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVAffineExpr/size.html">Size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVCone.html">锥约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCone/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCone/get_type.html">GetType()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCone/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCone/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCone/set.html">Set()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVSOS.html">SOS约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVSOS/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVSOS/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVSOS/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVSOS/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVGenConstr.html">一般约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVGenConstr/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVGenConstr/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVGenConstr/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVGenConstr/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVModel.html">模型</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/optvmodel.html">OPTVModel()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_cone.html">AddCone()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_constr.html">AddConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_constrs.html">AddConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_qconstr.html">AddQConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_genconstr_and.html">AddGenConstrAnd()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_genconstr_or.html">AddGenConstrOr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_genconstr_indicator.html">AddGenConstrIndicator()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_genconstr_abs.html">AddGenConstrAbs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_genconstr_norm.html">AddGenConstrNorm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_genconstr_max.html">AddGenConstrMax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_genconstr_min.html">AddGenConstrMin()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_sos.html">AddSOS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_var.html">AddVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/add_vars.html">AddVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/check_solution.html">CheckSolution()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/compute_iis.html">ComputeIIS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/feas_relax.html">FeasRelax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_coef.html">GetCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_column.html">GetColumn()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_cone.html">GetCone()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_cones.html">GetCones()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_constr_by_name.html">GetConstrByName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_constr.html">GetConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_constrs.html">GetConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_genconstr.html">GetGenConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_genconstrs.html">GetGenConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_genconstr_and.html">GetGenConstrAnd()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_genconstr_or.html">GetGenConstrOr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_genconstr_indicator.html">GetGenConstrIndicator()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_genconstr_abs.html">GetGenConstrAbs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_genconstr_norm.html">GetGenConstrNorm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_genconstr_min.html">GetGenConstrMin()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_genconstr_max.html">GetGenConstrMax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_qconstr.html">GetQConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_qconstrs.html">GetQConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_sos.html">GetSOS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_sos_data.html">GetSOSData()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_soss.html">GetSOSs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_objective.html">GetObjective() 获取线性目标函数</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_objective_n.html">GetObjectiveN()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_qobjective.html">GetQObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_row.html">GetRow()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_var_by_name.html">GetVarByName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_var.html">GetVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/get_vars.html">GetVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/optimize.html">Optimize()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/presolve.html">Presolve()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/read.html">Read()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/remove.html">Remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/relax.html">Relax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/reset.html">Reset()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/SA/get_obj_sa.html">GetObjSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/SA/get_var_lb_sa.html">GetVarLbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/SA/get_var_ub_sa.html">GetVarUbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/SA/get_constr_lb_sa.html">GetConstrLbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/SA/get_constr_ub_sa.html">GetConstrUbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/set_callback.html">SetCallback()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/set_coef.html">SetCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/set_objective.html">SetObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/set_objective_n.html">SetObjectiveN()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/update.html">Update()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/write_iis.html">WriteIIS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVModel/write.html">Write()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVTempConstr.html">临时约束</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVCallback.html">回调</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCallback/abort.html">Abort()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCallback/get_info.html">GetInfo()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCallback/get_node_rel.html">GetNodeRel()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCallback/get_solution.html">GetSolution()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCallback/get_type.html">GetType()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCallback/run_callback.html">RunCallback()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCallback/set_solution.html">SetSolution()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../cpp_api/OPTVCallback/use_solution.html">UseSolution()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVCBInfo.html">回调信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVCBType.html">回调类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVException.html">异常</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVErrCode.html">错误码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVSense.html">优化方向</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVConeType.html">锥类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../cpp_api/OPTVConstants.html">常量</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="../content.html">Java API参考手册</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../OPTVVar.html">变量</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVVar/get.html">get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVVar/set.html">set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVVar/index.html">index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVVar/same_as.html">sameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVColumn.html">列</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVColumn/add_term.html">AddTerm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVColumn/add_terms.html">AddTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVColumn/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVColumn/get_coef.html">GetCoeff()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVColumn/get_constr.html">GetConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVColumn/remove.html">Remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVColumn/size.html">Size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVLinExpr.html">线性表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVLinExpr/add_terms.html">addTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVLinExpr/clear.html">clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVLinExpr/get_coef.html">getCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVLinExpr/get_var.html">getVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVLinExpr/get_constant.html">getConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVLinExpr/get_value.html">getValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVLinExpr/remove.html">remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVLinExpr/same_as.html">sameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVLinExpr/size.html">size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVConstr.html">线性约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVConstr/get.html">get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVConstr/set.html">set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVConstr/index.html">index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVConstr/same_as.html">sameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVQuadExpr.html">二次表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/add_constant.html">addConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/add_term.html">addTerm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/add_terms.html">addTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/clear.html">clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/get_coeff.html">getCoeff()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/get_constant.html">getConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/get_lin_expr.html">getLinExpr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/get_value.html">getValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/get_var1.html">getVar1()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/get_var2.html">getVar2()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/remove.html">remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/same_as.html">sameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQuadExpr/size.html">size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVQConstr.html">二次约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQConstr/get.html">get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQConstr/set.html">set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQConstr/index.html">index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVQConstr/same_as.html">sameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVAffineExpr.html">仿射表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVAffineExpr/add_row.html">addRow()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVAffineExpr/add_rows.html">addRows()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVAffineExpr/get_column_indices.html">getColumnIndices()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVAffineExpr/get_offset.html">getOffset()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVAffineExpr/get_offsets.html">getOffsets()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVAffineExpr/get_row_indices.html">getRowIndices()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVAffineExpr/get_values.html">getValues()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVAffineExpr/set_offset.html">setOffset()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVAffineExpr/size.html">size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVCone.html">锥约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVCone/get.html">get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVCone/get_type.html">getType()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVCone/index.html">index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVCone/same_as.html">sameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVCone/set.html">Set()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVSOS.html">SOS约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVSOS/get.html">get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVSOS/set.html">set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVSOS/index.html">index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVSOS/same_as.html">sameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVGenConstr.html">一般约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVGenConstr/get.html">get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVGenConstr/set.html">set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVGenConstr/index.html">index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../OPTVGenConstr/same_as.html">sameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4 current"><a class="reference internal" href="../OPTVModel.html">模型</a><ul class="current">
+<li class="toctree-l5"><a class="reference internal" href="optvmodel.html">OPTVModel()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_cone.html">addCone()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_constr.html">addConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_constrs.html">addConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_qconstr.html">addQConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_genconstr_and.html">addGenConstrAnd()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_genconstr_or.html">addGenConstrOr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_genconstr_indicator.html">addGenConstrIndicator()</a></li>
+<li class="toctree-l5 current"><a class="current reference internal" href="#">addGenConstrAbs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_genconstr_norm.html">AddGenConstrNorm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_genconstr_max.html">addGenConstrMax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_genconstr_min.html">addGenConstrMin()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_sos.html">addSOS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_var.html">addVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="add_vars.html">addVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="check_solution.html">checkSolution()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="compute_iis.html">computeIIS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="feas_relax.html">feasRelax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_coef.html">getCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_column.html">GetColumn()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_constr_by_name.html">getConstrByName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_cone.html">getCone()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_cones.html">getCones()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_constr.html">getConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_constrs.html">getConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_genconstr_and.html">getGenConstrAnd()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_genconstr_or.html">getGenConstrOr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_genconstr_indicator.html">getGenConstrIndicator()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_genconstr_abs.html">getGenConstrAbs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_genconstr_norm.html">getGenConstrNorm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_genconstr_min.html">getGenConstrMin()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_genconstr_max.html">getGenConstrMax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_qconstr.html">getQConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_qconstrs.html">getQConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_sos.html">getSOS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_sos_data.html">getSOSData()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_soss.html">getSOSs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_objective.html">getObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_objective_n.html">getObjectiveN()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_qobjective.html">getQObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_row.html">getRow()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get.html">get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_var_by_name.html">getVarByName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_var.html">getVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="get_vars.html">getVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="optimize.html">optimize()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="presolve.html">presolve()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="read.html">read()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="relax.html">relax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="remove.html">remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="reset.html">reset()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SA/get_obj_sa.html">getObjSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SA/get_var_lb_sa.html">getVarLbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SA/get_var_ub_sa.html">getVarUbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SA/get_constr_lb_sa.html">getConstrLbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="SA/get_constr_ub_sa.html">getConstrUbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="set_coef.html">setCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="set_objective.html">setObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="set_objective_n.html">setObjectiveN()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="set.html">set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="update.html">update()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="write_iis.html">writeIIS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="write.html">write()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVErrCode.html">错误码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVException.html">异常</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVSense.html">优化方向</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVConeType.html">锥类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../OPTVConstants.html">常量</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../python_api/content.html">Python API 参考手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVVar.html">变量</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVVar/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVVar/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVVar/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVVar/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVMVar.html">矩阵变量</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/copy.html">Copy()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/diagonal.html">Diagonal()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/fromlist.html">FromList()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/fromvar.html">FromVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/item.html">Item()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/reshape.html">Reshape()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/tolist.html">ToList()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/transpose.html">Transpose()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/ndim.html">Ndim 维度</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/shape.html">Shape</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/size.html">Size</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMVar/T.html">T</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVColumn.html">列</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVColumn/add_term.html">AddTerm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVColumn/add_terms.html">AddTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVColumn/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVColumn/get_coef.html">GetCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVColumn/get_constr.html">GetConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVColumn/remove.html">Remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVColumn/size.html">Size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVLinExpr.html">线性表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVLinExpr/add_terms.html">AddTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVLinExpr/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVLinExpr/get_coef.html">GetCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVLinExpr/get_var.html">GetVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVLinExpr/get_constant.html">GetConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVLinExpr/get_value.html">GetValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVLinExpr/remove.html">Remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVLinExpr/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVLinExpr/size.html">Size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVMLinExpr.html">线性矩阵表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMLinExpr/copy.html">Copy()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMLinExpr/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMLinExpr/getvalue.html">GetValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMLinExpr/item.html">Item()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMLinExpr/zeros.html">Zeros()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMLinExpr/sum.html">Sum()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMLinExpr/ndim.html">Ndim 维度</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMLinExpr/shape.html">Shape</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMLinExpr/size.html">Size</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVConstr.html">线性约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVConstr/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVConstr/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVConstr/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVConstr/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVMConstr.html">线性约束矩阵</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMConstr/fromlist.html">FromList()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMConstr/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMConstr/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVMConstr/tolist.html">ToList()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVQuadExpr.html">二次表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/add_constant.html">AddConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/add_term.html">AddTerm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/add_terms.html">AddTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/get_coeff.html">GetCoeff()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/get_constant.html">GetConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/get_lin_expr.html">GetLinExpr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/get_value.html">GetValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/get_var1.html">GetVar1()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/get_var2.html">GetVar2()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/remove.html">Remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQuadExpr/size.html">Size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVQConstr.html">二次约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQConstr/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQConstr/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQConstr/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVQConstr/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVAffineExpr.html">仿射表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVAffineExpr/add_row.html">AddRow()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVAffineExpr/add_rows.html">AddRows()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVAffineExpr/get_column_indices.html">GetColumnIndices()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVAffineExpr/get_offset.html">GetOffset()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVAffineExpr/get_offsets.html">GetOffsets()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVAffineExpr/get_row_indices.html">GetRowIndices()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVAffineExpr/get_values.html">GetValues()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVAffineExpr/set_offset.html">SetOffset()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVAffineExpr/size.html">Size()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVCone.html">锥约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCone/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCone/get_type.html">GetType()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCone/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCone/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCone/set.html">Set()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVSOS.html">SOS约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVSOS/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVSOS/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVSOS/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVSOS/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVGenConstr.html">一般约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVGenConstr/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVGenConstr/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVGenConstr/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVGenConstr/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVModel.html">模型</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/optvmodel.html">OPTVModel()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_cone.html">AddCone()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_constr.html">AddConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_constrs.html">AddConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_qconstr.html">AddQConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_genconstr_and.html">AddGenConstrAnd()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_genconstr_or.html">AddGenConstrOr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_genconstr_indicator.html">AddGenConstrIndicator()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_genconstr_abs.html">AddGenConstrAbs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_genconstr_norm.html">AddGenConstrNorm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_genconstr_max.html">AddGenConstrMax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_genconstr_min.html">AddGenConstrMin()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_sos.html">AddSOS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_var.html">AddVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_mvar.html">AddMVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_vars.html">AddVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/add_mconstr.html">AddMConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/check_solution.html">CheckSolution()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/compute_iis.html">ComputeIIS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/feas_relax.html">FeasRelax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_coef.html">GetCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_column.html">GetColumn()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_cone.html">GetCone()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_cones.html">GetCones()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_constr_by_name.html">GetConstrByName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_constr.html">GetConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_constrs.html">GetConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_genconstr.html">GetGenConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_genconstrs.html">GetGenConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_genconstr_and.html">GetGenConstrAnd()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_genconstr_or.html">GetGenConstrOr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_genconstr_indicator.html">GetGenConstrIndicator()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_genconstr_abs.html">GetGenConstrAbs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_genconstr_norm.html">GetGenConstrNorm()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_genconstr_min.html">GetGenConstrMin()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_genconstr_max.html">GetGenConstrMax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_lin_matrix.html">GetLinMatrix()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_objective.html">GetObjective() 获取线性目标函数</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_objective_n.html">GetObjectiveN()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_qconstr.html">GetQConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_qconstrs.html">GetQConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_sos.html">GetSOS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_sos_data.html">GetSOSData()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_soss.html">GetSOSs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_qobjective.html">GetQObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_row.html">GetRow()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get.html">Get()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_var_by_name.html">GetVarByName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_var.html">GetVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/get_vars.html">GetVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/optimize.html">Optimize()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/presolve.html">Presolve()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/read.html">Read()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/relax.html">Relax()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/remove.html">Remove()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/reset.html">Reset()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/SA/get_obj_sa.html">GetObjSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/SA/get_var_lb_sa.html">GetVarLbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/SA/get_var_ub_sa.html">GetVarUbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/SA/get_constr_lb_sa.html">GetConstrLbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/SA/get_constr_ub_sa.html">GetConstrUbSA()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/set_coef.html">SetCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/set_objective.html">SetObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/set_objective_n.html">SetObjectiveN()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/update.html">Update()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/write_iis.html">WriteIIS()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVModel/write.html">Write()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVTempConstr.html">临时约束</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVException.html">异常</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVErrCode.html">错误码</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVSense.html">优化方向</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVConeType.html">锥类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/optvtune.html">调参工具</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVConstants.html">常量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVCallback.html">回调</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCallback/abort.html">Abort()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCallback/get_info.html">GetInfo()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCallback/get_node_rel.html">GetNodeRel()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCallback/get_solution.html">GetSolution()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCallback/get_type.html">GetType()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCallback/run_callback.html">RunCallback()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCallback/set_solution.html">SetSolution()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/OPTVCallback/use_solution.html">UseSolution()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVCBInfo.html">回调信息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/OPTVCBType.html">回调类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/GenConstrHelperFunctions.html">通用约束辅助函数</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/GenConstrHelperFunctions/and.html">And_()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/GenConstrHelperFunctions/or.html">Or_()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/GenConstrHelperFunctions/abs.html">Abs_()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/GenConstrHelperFunctions/norm.html">Norm_()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/GenConstrHelperFunctions/min.html">Min_()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/GenConstrHelperFunctions/max.html">Max_()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../python_api/GlobalFunctions.html">全局函数</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/GlobalFunctions/multidict.html">OPTVMultiDict()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../python_api/GlobalFunctions/quicksum.html">OPTVQuickSum()</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../enum/content.html">枚举类</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../enum/cpp_enum.html">C++ 枚举类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../enum/java_enum.html">Java 枚举类</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../enum/python_enum.html">Python 枚举类</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../cp-sat/content.html">约束规划求解器 API 参考手册</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../cp-sat/cpp_api/content.html">C++ API 参考手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel.html">模型</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/new_int_var.html">NewIntVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/new_int_var_from_domain.html">NewIntVarFromDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/new_bool_var.html">NewBoolVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/new_constant.html">NewConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_linear_constraint.html">AddLinearConstraint()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_linear_constraint_in_domain.html">AddLinearConstraintInDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_bool_or.html">AddBoolOr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_bool_and.html">AddBoolAnd()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_bool_xor.html">AddBoolXor()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_at_least_one.html">AddAtLeastOne()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_at_most_one.html">AddAtMostOne()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_exactly_one.html">AddExactlyOne()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_implication.html">AddImplication()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_allowed_assignments.html">AddAllowedAssignments()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_forbidden_assignments.html">AddForbiddenAssignments()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_interval.html">AddInterval()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_fixed_size_interval.html">AddFixedSizeInterval()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_optional_interval.html">AddOptionalInterval()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_optional_fixed_size_interval.html">AddOptionalFixedSizeInterval()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_interval_series.html">AddIntervalSeries()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_fixed_size_interval_series.html">AddFixedSizeIntervalSeries()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_optional_interval_series.html">AddOptionalIntervalSeries()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_optional_fixed_size_interval_series.html">AddOptionalFixedSizeIntervalSeries()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_no_overlap.html">AddNoOverlap()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_no_overlap_2d.html">AddNoOverlap2D()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_cumulative.html">AddCumulative()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_all_different.html">AddAllDifferent()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_element.html">AddElement()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_circuit.html">AddCircuit()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_multiple_circuit.html">AddMultipleCircuit()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_max_equality.html">AddMaxEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_min_equality.html">AddMinEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_abs_equality.html">AddAbsEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_multiplication_equality.html">AddMultiplicationEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_division_equality.html">AddDivisionEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_modulo_equality.html">AddModuloEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_inverse.html">AddInverse()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/add_decision_strategy.html">AddDecisionStrategy()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/maximize.html">Maximize()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/minimize.html">Minimize()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/has_objective.html">HasObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/clear_objective.html">ClearObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/is_maximize.html">IsMaximize()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_var.html">GetVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_vars.html">GetVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_constr.html">GetConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_constrs.html">GetConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_var_domain.html">GetVarDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_linear_constraint_vars.html">GetLinearConstraintVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_linear_constraint_coeffs.html">GetLinearConstraintCoeffs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_linear_constraint_domain.html">GetLinearConstraintDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_enforcement_literals.html">GetEnforcementLiterals()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_constraint_literals.html">GetConstraintLiterals()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/get_constraint_name.html">GetConstraintName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/set.html">Set()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/read.html">Read()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPModel/write.html">Write()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPSolver.html">求解器类</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPSolver/solve.html">Solve()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPSolver/get_objective_value.html">GetObjectiveValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPSolver/get_best_objective_bound.html">GetBestObjectiveBound()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPSolver/get_value.html">GetValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPSolver/get_values.html">GetValues()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPSolver/get_boolean_value.html">GetBooleanValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPSolver/get_boolean_values.html">GetBooleanValues()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPSolver/get_solution.html">GetSolution()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPVar.html">变量</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPVar/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPVar/get_name.html">GetName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPVar/get_domain.html">GetDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPVar/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPVar/is_binary.html">IsBinary()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPConstr.html">约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPConstr/only_enforce_if.html">OnlyEnforceIf()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPConstr/with_name.html">WithName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPConstr/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPConstr/get_name.html">GetName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPConstr/get_type.html">GetType()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPConstr/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPLinExpr.html">线性表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPLinExpr/add_terms.html">AddTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPLinExpr/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPLinExpr/get_coef.html">GetCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPLinExpr/get_var.html">GetVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPLinExpr/get_constant.html">GetConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPLinExpr/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPLinExpr/size.html">Size()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPLinExpr/remove.html">Remove()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPTempConstr.html">临时约束</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPVariableSelectionStrategy.html">变量选择策略</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPDomainReductionStrategy.html">域缩减策略</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/cpp_api/OPTVCPStatus.html">求解状态</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../cp-sat/python_api/content.html">Python API 参考手册</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel.html">模型</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/new_int_var.html">NewIntVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/new_int_var_from_domain.html">NewIntVarFromDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/new_bool_var.html">NewBoolVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/new_constant.html">NewConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_linear_constraint.html">AddLinearConstraint()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_linear_constraint_in_domain.html">AddLinearConstraintInDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_bool_or.html">AddBoolOr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_bool_and.html">AddBoolAnd()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_bool_xor.html">AddBoolXor()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_at_least_one.html">AddAtLeastOne()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_at_most_one.html">AddAtMostOne()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_exactly_one.html">AddExactlyOne()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_implication.html">AddImplication()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_allowed_assignments.html">AddAllowedAssignments()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_forbidden_assignments.html">AddForbiddenAssignments()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_interval.html">AddInterval()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_fixed_size_interval.html">AddFixedSizeInterval()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_optional_interval.html">AddOptionalInterval()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_optional_fixed_size_interval.html">AddOptionalFixedSizeInterval()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_interval_series.html">AddIntervalSeries()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_fixed_size_interval_series.html">AddFixedSizeIntervalSeries()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_optional_interval_series.html">AddOptionalIntervalSeries()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_optional_fixed_size_interval_series.html">AddOptionalFixedSizeIntervalSeries()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_no_overlap.html">AddNoOverlap()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_cumulative.html">AddCumulative()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_all_different.html">AddAllDifferent()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_element.html">AddElement()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_max_equality.html">AddMaxEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_min_equality.html">AddMinEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_abs_equality.html">AddAbsEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_multiplication_equality.html">AddMultiplicationEquality()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/add_decision_strategy.html">AddDecisionStrategy()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/maximize.html">Maximize()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/minimize.html">Minimize()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/has_objective.html">HasObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/clear_objective.html">ClearObjective()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/is_maximize.html">IsMaximize()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_var.html">GetVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_vars.html">GetVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_constr.html">GetConstr()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_constrs.html">GetConstrs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_var_domain.html">GetVarDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_linear_constraint_vars.html">GetLinearConstraintVars()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_linear_constraint_coeffs.html">GetLinearConstraintCoeffs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_linear_constraint_domain.html">GetLinearConstraintDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_enforcement_literals.html">GetEnforcementLiterals()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_constraint_literals.html">GetConstraintLiterals()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/get_constraint_name.html">GetConstraintName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPModel/set.html">Set()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPSolver.html">求解器类</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPSolver/solve.html">Solve()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPSolver/get_objective_value.html">GetObjectiveValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPSolver/get_best_objective_bound.html">GetBestObjectiveBound()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPSolver/get_value.html">GetValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPSolver/get_values.html">GetValues()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPSolver/get_boolean_value.html">GetBooleanValue()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPSolver/get_boolean_values.html">GetBooleanValues()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPSolver/get_solution.html">GetSolution()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPVar.html">变量</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPVar/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPVar/get_name.html">GetName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPVar/get_domain.html">GetDomain()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPVar/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPVar/is_binary.html">IsBinary()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPLinExpr.html">线性表达式</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPLinExpr/add_terms.html">AddTerms()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPLinExpr/clear.html">Clear()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPLinExpr/get_coef.html">GetCoef()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPLinExpr/get_var.html">GetVar()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPLinExpr/get_constant.html">GetConstant()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPLinExpr/same_as.html">SameAs()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPLinExpr/size.html">Size()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPLinExpr/remove.html">Remove()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPConstr.html">约束</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPConstr/only_enforce_if.html">OnlyEnforceIf()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPConstr/with_name.html">WithName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPConstr/index.html">Index()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPConstr/get_name.html">GetName()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPConstr/get_type.html">GetType()</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPConstr/same_as.html">SameAs()</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPTempConstr.html">临时约束</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPVariableSelectionStrategy.html">变量选择策略</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPDomainReductionStrategy.html">域缩减策略</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../cp-sat/python_api/OPTVCPStatus.html">求解状态</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../recording/content.html">SDK回放功能</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../../recording/record.html">Record 记录</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../../recording/replay.html">Replay 回放</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../network.html">网络流规划问题</a></li>
+</ul>
+
+            </div>
+          </nav>
+          <script>
+          // CLS fix: collapse non-current sections and add toctree-has-children
+          // synchronously during parse (before paint) to prevent layout shift
+          // from deferred JS class additions.
+          (function() {
+            var toc = document.querySelector('.sidebar-drawer .toctree');
+            if (!toc) return;
+            var lis = toc.querySelectorAll('li');
+            for (var i = 0; i < lis.length; i++) {
+              var li = lis[i];
+              var childUl = li.querySelector(':scope > ul');
+              if (childUl && childUl.querySelector(':scope > li')) {
+                li.classList.add('toctree-has-children');
+                if (!li.classList.contains('current') && !li.querySelector('.current')) {
+                  li.classList.add('toctree-collapsed');
+                }
+              }
+            }
+            toc.classList.add('toc-js');
+          })();
+          </script>
+        </div>
+      </div>
+    </aside>
+
+    
+    <main class="document" id="main-content">
+      
+      <details class="mobile-toc">
+        <summary>在此页</summary>
+        <div class="toc-tree mobile-toc-tree">
+          <ul>
+<li><a class="reference internal" href="#">addGenConstrAbs()</a><ul>
+<li><a class="reference internal" href="#OPTVModel.addGenConstrAbs-OPTVVar-resultant-OPTVVar-inputVar-String-name"><code class="docutils literal notranslate"><span class="pre">OPTVModel.addGenConstrAbs</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </details>
+      <div class="bodywrapper">
+        <div class="body">
+          
+  <section id="addgenconstrabs">
+<span id="label-javaapi-model-add-genconstr-abs"></span><h1>addGenConstrAbs()<a class="headerlink" href="#addgenconstrabs" title="Link to this heading">¶</a></h1>
+<p>向模型中添加单个 <code class="docutils literal notranslate"><span class="pre">ABS</span></code> 一般约束：<span class="math notranslate nohighlight">\(r = \text{abs}(x)\)</span>。 此约束条件保证因变量 <span class="math notranslate nohighlight">\(r\)</span> 的值为自变量 <span class="math notranslate nohighlight">\(x\)</span> 的绝对值， 即 <span class="math notranslate nohighlight">\(r = |x|\)</span>, 其中 <span class="math notranslate nohighlight">\(r \geq 0\)</span>。</p>
+<p>形如 <span class="math notranslate nohighlight">\(r = \text{abs}(x)\)</span> 的绝对值约束要求变量 <span class="math notranslate nohighlight">\(r\)</span> 等于变量 <span class="math notranslate nohighlight">\(x\)</span> 的绝对值。该约束施加了关系 <span class="math notranslate nohighlight">\(r = |x|\)</span>，其中 <span class="math notranslate nohighlight">\(r \geq 0\)</span>。</p>
+<dl class="java function">
+<dt class="sig sig-object java" id="OPTVModel.addGenConstrAbs-OPTVVar-resultant-OPTVVar-inputVar-String-name">
+<span class="sig-prename descclassname"><a class="reference internal" href="../OPTVModel.html#OPTVModel" title="OPTVModel"><span class="n"><span class="pre">OPTVModel</span></span></a><span class="p"><span class="pre">.</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">addGenConstrAbs</span></span></span><span class="sig-paren">(</span><a class="reference external" href="../OPTVVar.html#OPTVVar"><span class="n"><span class="pre">OPTVVar</span></span></a><span class="w"> </span><em class="sig-param"><span class="n"><span class="pre">resultant</span></span></em>, <a class="reference external" href="../OPTVVar.html#OPTVVar"><span class="n"><span class="pre">OPTVVar</span></span></a><span class="w"> </span><em class="sig-param"><span class="n"><span class="pre">inputVar</span></span></em>, <span class="kt"><span class="pre">String</span></span><span class="w"> </span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#OPTVModel.addGenConstrAbs-OPTVVar-resultant-OPTVVar-inputVar-String-name" title="Link to this definition">¶</a></dt>
+<dd><p>结果变量，该变量的值为另一变量的绝对值。</p>
+<dl class="field-list simple">
+<dt class="field-odd">参数<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resultant</strong> – 该变量的绝对值将被结果变量采用。</p></li>
+<li><p><strong>inputVar</strong> – 添加到模型的一般约束对象。</p></li>
+<li><p><strong>name</strong> – 约束名称。</p></li>
+</ul>
+</dd>
+<dt class="field-even">返回<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">name</span></code> 为空，数值参数中存在 <code class="docutils literal notranslate"><span class="pre">NaN</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">name</span></code> 与模型中的其他约束重名。</p>
+</dd>
+<dt class="field-odd">返回类型<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../OPTVGenConstr.html#OPTVGenConstr" title="OPTVGenConstr">OPTVGenConstr</a></p>
+</dd>
+<dt class="field-even">抛出<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><a class="reference internal" href="../OPTVErrCode.html#INVALID_ARGUMENT" title="OPTVErrCode.INVALID_ARGUMENT"><code class="xref java java-class docutils literal notranslate"><span class="pre">OPTVErrCode.INVALID_ARGUMENT</span></code></a></span> – <code class="docutils literal notranslate"><span class="pre">name</span></code> 为空，数值参数中存在 <code class="docutils literal notranslate"><span class="pre">NaN</span></code> 或者 <code class="docutils literal notranslate"><span class="pre">name</span></code> 与模型中的其他组件重名。</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+        </div>
+      </div>
+
+      
+      <nav class="page-nav" aria-label="上一页和下一页">
+        <a href="add_genconstr_indicator.html" class="page-nav-card page-nav-prev" rel="prev">
+          <span class="page-nav-direction">上一个</span>
+          <span class="page-nav-title">addGenConstrIndicator()</span>
+        </a>
+        <a href="add_genconstr_norm.html" class="page-nav-card page-nav-next" rel="next">
+          <span class="page-nav-direction">接下来</span>
+          <span class="page-nav-title">AddGenConstrNorm()</span>
+        </a>
+      </nav>
+    </main>
+
+    
+    <aside class="toc-drawer" id="toc-drawer">
+      <div class="toc-sticky">
+        <h2 class="toc-title">在此页</h2>
+        <nav class="toc-tree" aria-label="在此页">
+          <ul>
+<li><a class="reference internal" href="#">addGenConstrAbs()</a><ul>
+<li><a class="reference internal" href="#OPTVModel.addGenConstrAbs-OPTVVar-resultant-OPTVVar-inputVar-String-name"><code class="docutils literal notranslate"><span class="pre">OPTVModel.addGenConstrAbs</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </nav>
+      </div>
+    </aside>
+    <footer class="footer">
+    &#169; 版权所有 2026, 天筹求解器团队.
+    </footer>
+  </div>
+
+<button class="back-to-top" id="back-to-top" aria-label="回到顶部" title="回到顶部">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="m5 12 7-7 7 7"/>
+  </svg>
+</button>
+
+<script>
+  window.THEME_CONFIG = {
+    searchPaletteEnabled: true,
+    searchPaletteScriptUrl: "../../../../../_static/search-palette.min.js",
+    searchToolsUrl: "../../../../../_static/searchtools.js",
+    languageDataUrl: "../../../../../_static/language_data.js",
+    searchIndexUrl: "../../../../../searchindex.js",
+    searchPageUrl: "../../../../../search.html",
+    contentRoot: "../../../../../"
+  };
+</script>
+<div class="search-palette" id="search-palette" role="dialog" aria-modal="true" aria-label="搜索" hidden>
+  <div class="search-palette-backdrop"></div>
+  <div class="search-palette-dialog">
+    <div class="search-palette-header">
+      <svg class="search-palette-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <label for="search-palette-input" class="sr-only">搜索</label>
+      <input type="text" class="search-palette-input" id="search-palette-input" name="q" placeholder="搜索文档..." role="combobox" aria-expanded="true" aria-controls="search-palette-list" aria-autocomplete="list" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <kbd class="search-palette-esc">ESC</kbd>
+    </div>
+    <div class="search-palette-content">
+      <div class="search-palette-list" id="search-palette-list" role="listbox" aria-label="搜索"></div>
+      <div class="search-palette-empty" id="search-palette-empty" hidden>未找到结果。</div>
+      <div class="search-palette-loading" id="search-palette-loading" hidden>正在加载搜索索引...</div>
+    </div>
+    <div class="search-palette-footer">
+      <span class="search-palette-hint"><kbd>&uarr;</kbd><kbd>&darr;</kbd> 导航</span>
+      <span class="search-palette-hint"><kbd>&crarr;</kbd> 选择</span>
+      <span class="search-palette-hint"><kbd>esc</kbd> 关闭</span>
+    </div>
+  </div>
+</div>
+<script defer src="../../../../../_static/theme.min.js"></script>
+
+  </body>
+</html>
