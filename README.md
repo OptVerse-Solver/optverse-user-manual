@@ -26,3 +26,9 @@ uv run --with-requirements requirements.txt \
 
 Read the Docs automatically builds and publishes the documentation after a
 push to the `main` branch.
+
+## Licensing / 许可
+
+公开文档 / Public documentation: [Apache 2.0](LICENSE). 第三方资源保留各自许可。 / Third-party assets retain their own licenses.
+
+求解器与 SDK / Solver & SDKs: [EULA 中文](https://github.com/OptVerse-Solver/optverse-release/blob/main/licenses/3.8.1/optv-eula_cn.pdf) · [English](https://github.com/OptVerse-Solver/optverse-release/blob/main/licenses/3.8.1/optv-eula_en.pdf). 文档许可不适用于求解器、SDK 或 EULA。 / The documentation license excludes the solver, SDKs, and EULA.
