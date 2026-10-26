@@ -1,0 +1,65 @@
+/* Set background colour to dark and font to light for literal/code blocks */
+
+.highlight pre, pre.literal-block {
+    font-family: 'FiraCode Nerd Font Mono', monospace;
+    font-size: small;
+}
+
+/* Fira code is my preferred font, ligatures are nice */
+@font-face {
+    font-family: 'FiraCode Nerd Font Mono';
+    src: url('https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Retina/complete/Fira%20Code%20Retina%20Nerd%20Font%20Complete%20Mono.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Equations should be right-aligned */
+span.eqno {
+    float: right;
+}
+
+/* Labels should be left-aligned (i.e footnotes) */
+span.label {
+    float: left;
+}
+
+/* Increase the max-width a bit */
+@media (min-width: 992px) {
+    #cs-layout, #cs-nav {
+        max-width: 1440px !important;
+    }
+}
+
+/* Footnote section border */
+aside.footnote-list.brackets {
+    border: 1px solid #202020;
+}
+
+/* Gap between border and footnote content */
+aside.footnote.brackets {
+    padding-left: 10px;
+}
+
+.sidebar-brand-text {
+    font-size: 1.1em;
+    line-height: 1.4;
+    text-align: center;
+    white-space: normal;
+}
+
+.sidebar-logo {
+    margin-bottom: 0.8em;
+}
+
+/* Update notebook tables to match theme */
+.jp-RenderedHTMLCommon table, div.rendered_html table {
+    color: var(--color-content-foreground);
+}
+
+.jp-RenderedHTMLCommon tr, .jp-RenderedHTMLCommon th, .jp-RenderedHTMLCommon td, div.rendered_html tr, div.rendered_html th, div.rendered_html td {
+    background: var(--color-background-primary);
+}
+
+.jp-RenderedHTMLCommon td, div.rendered_html td {
+    border: 1px solid var(--color-table-border);
+}
